@@ -67,7 +67,7 @@ module MagentoApiWrapper
       document = MagentoApiWrapper::Requests::StoreList.new(params)
       request = MagentoApiWrapper::Request.new(magento_url: params[:magento_url], call_name: :store_list)
       request.body = document.body
-      store_list = MagentoApiWrapper::StoreList.new(request.connect!)
+      store_list = MagentoApiWrapper::Requests::StoreList.new(request.connect!)
       store_list.store_ids
     end
 
@@ -76,7 +76,7 @@ module MagentoApiWrapper
       document = MagentoApiWrapper::Requests::StoreInfo.new(params)
       request = MagentoApiWrapper::Request.new(magento_url: params[:magento_url], call_name: :store_info)
       request.body = document.body
-      store = MagentoApiWrapper::StoreInfo.new(request.connect!)
+      store = MagentoApiWrapper::Requests::StoreInfo.new(request.connect!)
       store.name
     end
 
